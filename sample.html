@@ -17,9 +17,17 @@ function insertRow(id) {
     // 行数取得
     var row_len = table.rows.length;
 
+    const input1 = document.createElement("input");
+    input1.setAttribute("list", "regular_work");
+    input1.setAttribute("class", "text_field");
+    input1.setAttribute("type", "text");
+    input1.setAttribute("name", "table[" + row_len + "-" + 1 + "]");
+    input1.setAttribute("id", "table_" + row_len + "-" + 1);
+    input1.setAttribute("value", row_len + "-" + 1);
+
     // セルの内容入力
     cell1.innerHTML = button;
-    cell2.innerHTML = row_len + "-" + 1;
+    cell2.appendChild(input1);
     cell3.innerHTML = row_len + "-" + 2;
 }
 
