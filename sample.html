@@ -1,4 +1,18 @@
 <script>
+function getRowIndex(target) {
+    var elements = document.getElementsByTagName( "tr" ) ;
+
+    // 番号を知りたい要素
+    var element = target.parentNode.parentNode;
+
+    // HTMLCollectionから配列を作成
+    elements = [].slice.call( elements ) ;
+
+    // 要素の順番を取得
+    var index = elements.indexOf( element ) ;
+    console.log(index);
+}
+
 /**
  * 行追加
  */
@@ -44,7 +58,8 @@ function deleteRow(obj) {
 
 <input type="button" value="行追加" onclick="insertRow('sample1_table')" />
 <table id="sample1_table">
-    <tr>
+    <tr id="tr_1">
+        <td><input type="button" value="行番号取得" onclick="getRowIndex(this)" /></td>
         <td nowrap><input type="button" value="行削除"
             onclick="deleteRow(this)" /></td>
         <td nowrap>1-1</td>
