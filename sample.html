@@ -1,4 +1,13 @@
 <script>
+function addId() {
+    var elements = document.getElementsByClassName( "text_field" ) ;
+    console.log(elements);
+    elements = [].slice.call( elements ) ;
+    elements.forEach((element, index) => {
+        element.setAttribute("id", "cell" + index);
+    });
+}
+
 /**
  * 行追加
  */
@@ -55,11 +64,12 @@ function deleteRow(obj) {
 }
 </script>
 
+<input type="button" value="行追加" onclick="addId()" />
 <table id="sample1_table">
     <tr id="tr_1">
         <td><input type="button" value="下に1行挿入" onclick="insertRow(this)" /></td>
         <td nowrap><input type="button" value="行削除" onclick="deleteRow(this)" /></td>
-        <td nowrap>1-1</td>
-        <td nowrap>1-2</td>
+        <td nowrap class="text_field">1-1</td>
+        <td nowrap class="text_field">1-2</td>
     </tr>
 </table>
